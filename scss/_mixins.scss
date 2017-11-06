@@ -1,0 +1,216 @@
+//  Mixins
+
+/*dropdown menu*/
+/* MIXINS
+  ==================================*/
+
+.card-shadow, #dropdown-menu {
+  box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.05), 0 0 0.8em rgba(0, 0, 0, 0.05);
+}
+
+/* GENERAL STYLES
+   ================================== */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* DROPDOWN
+   ================================== */
+
+.button-group {
+  position: relative;
+  width: 100vw;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  top: 0.2em;
+}
+
+#dropdown-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 620px;
+  list-style: none;
+  z-index: 999;
+  border-radius: 2px;
+  background: #fff;
+  -webkit-transition: all .5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all .5s cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transform: scale(1,0);
+  -ms-transform: scale(1,0);
+  transform: scale(1,0);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+
+  ul {
+  	margin: 180px auto;
+  	position: relative;
+  	padding-left: 30px;
+
+  	@media (min-width: 768px){
+  		width: 750px
+  	}
+  	@media (min-width: 992px){
+  		width: 970px
+  	}
+  	@media (min-width: 1200px){
+  		width: 1170px
+  	}
+  }
+
+  li {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+    opacity: 0;
+    list-style-type: none;
+    padding: 12px 0;
+
+    h3 {
+    	font-size: 46px;
+    	font-weight: 200;
+    	font-style: italic;
+    	letter-spacing: -0.2px;
+    }
+
+    a {
+      color: #373737;
+      text-decoration: none;
+      font-size: 1em;
+    }
+  }
+  &.open {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    li {
+      -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+}
+
+.dropdown-content > .lg-link {
+	float: left;
+	clear: both;
+}
+
+.sm-link {
+
+	position: absolute;
+	right: 0px;
+	top: 220px;
+	a {
+		display: inline-block;
+		margin: 0 15px;
+		p {
+			color: #A5ABB2;
+			margin: 0;
+			font-weight: 200;
+		}
+	}
+}
+
+.icon-link {
+	position: absolute;
+	right: 5px;
+	top: 280px;
+	a {
+		margin: 0 10px;
+	}
+}
+
+.lg-link > a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 20px;
+  bottom: 42px;
+  left: 0;
+  /*background-color: #F0F3F6;*/
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transform-origin: left;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#nav-1 > a:before {
+	background-color: $theme;
+}
+
+#nav-2 > a:before {
+	background-color: #47C59D;
+}
+
+#nav-3 > a:before {
+	background-color: #FEE7A3;
+}
+
+.lg-link > a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/*#dropdown-menu li :hover {
+  background-color: rgba(0, 0, 0, 0.15)
+}*/
+
+.open li {
+  &:nth-child(1) {
+    -webkit-transition-delay: 0.2s !important;
+    transition-delay: 0.2s !important;
+  }
+  &:nth-child(2) {
+    -webkit-transition-delay: 0.3s !important;
+    transition-delay: 0.3s !important;
+  }
+  &:nth-child(3) {
+    -webkit-transition-delay: 0.4s !important;
+    transition-delay: 0.4s !important;
+  }
+  &:nth-child(4) {
+    -webkit-transition-delay: 0.5s !important;
+    transition-delay: 0.5s !important;
+  }
+  &:nth-child(5), &:nth-child(6) {
+    -webkit-transition-delay: 0.6s !important;
+    transition-delay: 0.6s !important;
+  }
+}
+
+.open + div {
+	opacity: 1;
+	visibility: visible;
+}
+
+.overlay {
+	z-index: 980;
+	visibility: hidden;
+    opacity: 0;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: fixed;
+	background-color: rgba(0, 0, 0, 0.2);
+	transition: visibility 0.4s linear,opacity 0.4s linear;
+	-webkit-transition: visibility 0.4s linear,opacity 0.4s linear;
+}
+
+.noscroll {
+	overflow: hidden;
+}
+
+/*dropdown menu*/
